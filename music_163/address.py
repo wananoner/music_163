@@ -12,7 +12,7 @@ import you_get
 #             position_info.append(a)
 #             # print(type(a))
 #     return position_info
-
+# test
 db = pymysql.connect(host="127.0.0.1", user="root", password="password", db="meituan", charset="utf8")
 cursor = db.cursor()
 sql = "SELECT * FROM shangjia_info"
