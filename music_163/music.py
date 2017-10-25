@@ -1,8 +1,8 @@
 import requests
 import time
-import csv
 import pymysql
 from lxml import etree
+
 db = pymysql.connect(host="127.0.0.1", user="root", password="password", db="music163", charset="utf8")
 cursor = db.cursor()
 
@@ -21,9 +21,6 @@ def name_href():
     header = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)\
                         Chrome/61.0.3163.79 Safari/537.36'}
-    # with open('name_href.csv', 'a', encoding='utf-8') as f:
-    #     f_csv = csv.writer(f, delimiter=',', lineterminator='\n')
-    #     f_csv.writerow(["name", "href"])
     try:
         for url in urls:
             for i in range(65, 91):
