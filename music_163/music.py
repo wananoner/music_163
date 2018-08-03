@@ -20,6 +20,7 @@ def open_url(url):
 
 
 def songer():
+    """歌手"""
     url = 'http://music.163.com'
     selector = open_url('http://music.163.com/discover/artist')
     leixing_href = selector.xpath('//div[@class="blk"]/ul/li/a/@href')
