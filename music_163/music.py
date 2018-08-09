@@ -1,8 +1,9 @@
-import requests
 import time
+from urllib.parse import urljoin
+
+import requests
 import pymysql
 from lxml import etree
-from urllib.parse import urljoin
 from fake_useragent import UserAgent
 
 
@@ -40,11 +41,11 @@ class MusicSpider:
             word_list = self.get_url(url_word).xpath('//ul[@id="initial-selector"]/li/a/@href')[1:]
             for words in word_list:
                 url_name = urljoin(url, words)
-                songer_name = self.get_url(url_name).xpath('//ul[@id="m-artist-box"]/li/p/a/text()|\
+                singer_name = self.get_url(url_name).xpath('//ul[@id="m-artist-box"]/li/p/a/text()|\
                                                         //ul[@id="m-artist-box"]/li/a/text()')
-                songer_url = [urljoin(url, href[1:]) for href in self.get_url(url_name).xpath(
+                singer_url = [urljoin(url, href[1:]) for href in self.get_url(url_name).xpath(
                     '//ul[@id="m-artist-box"]/li/p/a[1]/@href|//ul[@id="m-artist-box"]/li/a[1]/@href')]
-                for (name, url) in zip(songer_name, songer_url):
+                for (name, url) in zip(singer_name, singer_url):
                     md.insert_db(name, url, type_name)
             time.sleep(10)
 
