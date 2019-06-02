@@ -51,5 +51,7 @@ class MusicSpider:
 
 
 if __name__ == '__main__':
+    """
+    rest"""
     ms = MusicSpider()
     ms.singer()
